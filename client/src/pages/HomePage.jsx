@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { Authcontext } from "../../context/AuthContext";
 import TransactionContext from "../../context/TransactionContext";
 import TransactionList from "../components/TransactionList";
-import ProfilePage from "./profilePage";
+import ProfilePage from "./ProfilePage";
 
 const HomePage = () => {
   const { authUser } = useContext(Authcontext);
