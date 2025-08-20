@@ -39,7 +39,6 @@ const ProfilePage = () => {
             fullName: name,
           });
           setShowModal(false);
-          navigate("/");
         };
         reader.readAsDataURL(selectedImg);
         reader.onerror = (error) => {
@@ -50,7 +49,6 @@ const ProfilePage = () => {
           fullName: name,
         });
         setShowModal(false);
-        navigate("/");
       }
     } catch (error) {
       console.error("Error updating profile:", error);
