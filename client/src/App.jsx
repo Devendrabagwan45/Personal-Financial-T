@@ -7,6 +7,7 @@ import { Authcontext } from "../context/AuthContext";
 import { Toaster } from "react-hot-toast";
 import LoginPage from "./pages/LoginPage";
 import ProfilePage from "./pages/ProfilePage";
+import "./App.css";
 
 const App = () => {
   const { authUser } = useContext(Authcontext);
@@ -14,6 +15,7 @@ const App = () => {
   return (
     <div className="">
       <Toaster />
+
       <Routes>
         <Route
           path="/"
