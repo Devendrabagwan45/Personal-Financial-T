@@ -48,7 +48,7 @@ const AddTransaction = () => {
   };
 
   return (
-    <div>
+    <div className="bg-black text-white h-screen">
       <div className="flex justify-between items-center p-4 ">
         <h1 className="text-2xl font-bold ml-10">Add Transaction</h1>
         <span
@@ -59,7 +59,7 @@ const AddTransaction = () => {
         </span>
       </div>
 
-      <div className="flex justify-between items-center p-4 mx-10 border rounded-4xl mt-4 bg-gray-100 shadow-lg">
+      <div className="flex justify-between items-center p-4 mx-10 border rounded-4xl mt-4 bg-black text-white shadow-lg">
         <h1
           className={`cursor-pointer p-3 transition duration-300 ease-in-out ${
             currState === "Expense"
@@ -90,7 +90,7 @@ const AddTransaction = () => {
 
       <form
         onSubmit={handleSubmit}
-        className="bg-white shadow-md rounded-lg p-6 "
+        className="bg-black text-white shadow-md rounded-lg p-6 "
       >
         <label className="block mb-2">
           Amount
@@ -109,15 +109,25 @@ const AddTransaction = () => {
             Category
             <select
               onChange={(e) => setCategory(e.target.value)}
-              className="block border border-gray-300 rounded-md p-2 mb-4 w-full shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="block border border-gray-300 rounded-md p-2 mb-4 w-full shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500 "
               required
             >
               <option value="">Select a category</option>
-              <option value="food">Food</option>
-              <option value="transport">Transport</option>
-              <option value="entertainment">Entertainment</option>
-              <option value="utilities">Utilities</option>
-              <option value="other">Other</option>
+              <option className="text-black" value="food">
+                Food
+              </option>
+              <option className="text-black" value="transport">
+                Transport
+              </option>
+              <option className="text-black" value="entertainment">
+                Entertainment
+              </option>
+              <option className="text-black" value="utilities">
+                Utilities
+              </option>
+              <option className="text-black" value="other">
+                Other
+              </option>
             </select>
           </label>
         ) : (
@@ -147,7 +157,7 @@ const AddTransaction = () => {
 
         <button
           type="submit"
-          className="w-full py-2 bg-black text-white rounded-full hover:bg-gray-800 transition duration-300"
+          className="w-full py-2 bg-white text-black rounded-full hover:bg-white/50 transition duration-300"
         >
           Save
         </button>

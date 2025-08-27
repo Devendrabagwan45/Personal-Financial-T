@@ -41,28 +41,28 @@ const HomePage = () => {
   }, [fetchRecentTransactions, authUser?._id]);
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-black text-white">
       <ProfilePage />
 
       <div className="p-4">
-        <div className="bg-white rounded-lg shadow-sm p-4 mb-4">
-          <p className="text-sm text-gray-600">Current Balance</p>
-          <h1 className="font-bold text-2xl text-gray-900">
+        <div className=" rounded-lg shadow-sm p-4 mb-4 border-gray-600 bg-white/9">
+          <p className="text-sm ">Current Balance</p>
+          <h1 className="font-bold text-2xl text-white/90">
             ${statistics.netBalance.toLocaleString()}
           </h1>
         </div>
 
-        <div className="bg-white rounded-lg shadow-sm p-4 mb-4">
-          <h3 className="font-semibold text-gray-900 mb-3">Quick Stats</h3>
+        <div className="  rounded-lg shadow-sm p-4 mb-4 border-gray-600 bg-white/9">
+          <h3 className="font-semibold  mb-3">Quick Stats</h3>
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <p className="text-sm text-gray-600">Income</p>
+              <p className="text-sm text-white-300">Income</p>
               <p className="text-green-600 font-semibold">
                 +${statistics.totalIncome.toLocaleString()}
               </p>
             </div>
             <div>
-              <p className="text-sm text-gray-600">Expenses</p>
+              <p className="text-sm text-white-300">Expenses</p>
               <p className="text-red-600 font-semibold">
                 -${statistics.totalExpenses.toLocaleString()}
               </p>
@@ -70,7 +70,7 @@ const HomePage = () => {
           </div>
         </div>
 
-        <div className="mb-4">
+        <div className="mb-4 ">
           <TransactionList
             transactions={recentTransactions}
             loading={loading}
@@ -79,7 +79,7 @@ const HomePage = () => {
         </div>
       </div>
 
-      <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200">
+      <div className="fixed bottom-0 left-0 right-0 bg-black border-t border-gray-200">
         <div className="flex justify-around items-center py-2">
           <button className="p-2 text-gray-600 hover:text-blue-600">
             <IoMdHome className="text-2xl" />

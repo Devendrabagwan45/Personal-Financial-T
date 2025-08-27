@@ -24,7 +24,7 @@ const TransactionItem = ({ transaction, mobile = false }) => {
 
   if (mobile) {
     return (
-      <div className="p-4 border-b border-gray-200 hover:bg-gray-50 transition-colors">
+      <div className="p-4 border  transition-colors">
         <div className="flex justify-between items-start">
           <div className="flex-1">
             <div className="flex items-center gap-2">
@@ -32,15 +32,11 @@ const TransactionItem = ({ transaction, mobile = false }) => {
                 {getCategoryIcon(transaction.category)}
               </span>
               <div>
-                <p className="font-medium text-gray-900">
-                  {transaction.description}
-                </p>
-                <p className="text-sm text-gray-500">{transaction.category}</p>
+                <p className="font-medium">{transaction.description}</p>
+                <p className="text-sm ">{transaction.category}</p>
               </div>
             </div>
-            <p className="text-xs text-gray-400 mt-1">
-              {formatDate(transaction.date)}
-            </p>
+            <p className="text-xs  mt-1">{formatDate(transaction.date)}</p>
           </div>
           <div className="text-right">
             <p className={`font-semibold ${amountColor}`}>
@@ -54,7 +50,7 @@ const TransactionItem = ({ transaction, mobile = false }) => {
   }
 
   return (
-    <tr className="hover:bg-gray-50 transition-colors">
+    <tr className=" transition-colors bg-white/9">
       <td className="px-6 py-4 whitespace-nowrap">
         <div className="flex items-center">
           <div className="flex-shrink-0 h-8 w-8">
@@ -63,10 +59,10 @@ const TransactionItem = ({ transaction, mobile = false }) => {
             </span>
           </div>
           <div className="ml-4">
-            <div className="text-sm font-medium text-gray-900">
+            <div className="text-sm font-medium ">
               {transaction.description}
             </div>
-            <div className="text-sm text-gray-500">{transaction.category}</div>
+            <div className="text-sm ">{transaction.category}</div>
           </div>
         </div>
       </td>
@@ -75,7 +71,7 @@ const TransactionItem = ({ transaction, mobile = false }) => {
           {transaction.category}
         </span>
       </td>
-      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+      <td className="px-6 py-4 whitespace-nowrap text-sm ">
         {formatDate(transaction.date)}
       </td>
       <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">

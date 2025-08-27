@@ -20,7 +20,7 @@ import {
   formatCurrency,
   getTrendData,
 } from "../lib/analysisUtils";
-import CircularProgressBar from "./CircularProgressBar";
+
 import TransactionContext from "../../context/TransactionContext";
 
 const Analysis = () => {
@@ -86,10 +86,10 @@ const Analysis = () => {
 
   // Render overview tab
   const renderOverview = () => (
-    <div className="space-y-6">
+    <div className="space-y-6 bg-black text-white">
       {/* Key Metrics Cards */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-        <div className="bg-gradient-to-r from-green-400 to-green-600 p-6 rounded-xl shadow-lg">
+        <div className="bg-white/9 p-6 rounded-xl shadow-lg">
           <h3 className="text-white text-sm font-medium">Total Income</h3>
           <p className="text-white text-2xl font-bold mt-2">
             {formatCurrency(stats.totalIncome)}
@@ -97,7 +97,7 @@ const Analysis = () => {
           <p className="text-green-100 text-sm mt-1">+12% from last period</p>
         </div>
 
-        <div className="bg-gradient-to-r from-red-400 to-red-600 p-6 rounded-xl shadow-lg">
+        <div className="bg-white/9 p-6 rounded-xl shadow-lg">
           <h3 className="text-white text-sm font-medium">Total Expenses</h3>
           <p className="text-white text-2xl font-bold mt-2">
             {formatCurrency(stats.totalExpenses)}
@@ -108,7 +108,7 @@ const Analysis = () => {
         <div
           className={`p-6 rounded-xl shadow-lg ${
             stats.netBalance >= 0
-              ? "bg-gradient-to-r from-blue-400 to-blue-600"
+              ? "bg-white/9"
               : "bg-gradient-to-r from-orange-400 to-orange-600"
           }`}
         >
@@ -123,32 +123,30 @@ const Analysis = () => {
       </div>
 
       {/* Transaction Stats */}
-      <div className="bg-white p-6 rounded-xl shadow-lg">
+      <div className=" p-6 rounded-xl shadow-lg">
         <h3 className="text-lg font-semibold mb-4">Transaction Summary</h3>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           <div className="text-center">
-            <p className="text-2xl font-bold text-gray-800">
-              {stats.transactionCount}
-            </p>
-            <p className="text-sm text-gray-600">Total Transactions</p>
+            <p className="text-2xl font-bold ">{stats.transactionCount}</p>
+            <p className="text-sm  ">Total Transactions</p>
           </div>
           <div className="text-center">
-            <p className="text-2xl font-bold text-gray-800">
+            <p className="text-2xl font-bold  ">
               {formatCurrency(stats.averageTransaction)}
             </p>
-            <p className="text-sm text-gray-600">Avg Transaction</p>
+            <p className="text-sm  ">Avg Transaction</p>
           </div>
           <div className="text-center">
             <p className="text-2xl font-bold text-green-600">
               {formatCurrency(stats.totalIncome / 30)}
             </p>
-            <p className="text-sm text-gray-600">Daily Average</p>
+            <p className="text-sm  ">Daily Average</p>
           </div>
           <div className="text-center">
             <p className="text-2xl font-bold text-red-600">
               {formatCurrency(stats.totalExpenses / 30)}
             </p>
-            <p className="text-sm text-gray-600">Daily Spending</p>
+            <p className="text-sm  ">Daily Spending</p>
           </div>
         </div>
       </div>
@@ -157,28 +155,25 @@ const Analysis = () => {
 
   // Render categories tab
   const renderCategories = () => (
-    <div className="space-y-6">
+    <div className="space-y-6 bg-black text-white">
       <h3 className="text-xl font-semibold mb-4">Spending by Category</h3>
 
       {stats.topCategories.length === 0 ? (
-        <div className="bg-gray-50 p-8 rounded-xl text-center">
-          <p className="text-gray-500">No category data available</p>
+        <div className="  p-8 rounded-xl text-center">
+          <p className=" ">No category data available</p>
         </div>
       ) : (
         <div className="space-y-4">
           {stats.topCategories.map((category, index) => (
-            <div
-              key={category.category}
-              className="bg-white p-4 rounded-xl shadow-lg"
-            >
+            <div key={category.category} className="  p-4 rounded-xl shadow-lg">
               <div className="flex items-center justify-between mb-2">
                 <div className="flex items-center space-x-3">
-                  <div className="p-2 bg-gray-100 rounded-lg">
+                  <div className="p-2   rounded-lg">
                     {getCategoryIcon(category.category)}
                   </div>
                   <div>
                     <h4 className="font-semibold">{category.category}</h4>
-                    <p className="text-sm text-gray-600">
+                    <p className="text-sm  ">
                       {formatCurrency(category.amount)}
                     </p>
                   </div>
@@ -188,7 +183,7 @@ const Analysis = () => {
                 </div>
               </div>
 
-              <div className="w-full bg-gray-200 rounded-full h-2">
+              <div className="w-full  rounded-full h-2">
                 <div
                   className="bg-gradient-to-r from-purple-500 to-pink-500 h-2 rounded-full"
                   style={{ width: `${category.percentage}%` }}
@@ -206,21 +201,21 @@ const Analysis = () => {
     const trendEntries = Object.entries(trendData);
 
     return (
-      <div className="space-y-6">
+      <div className="space-y-6 bg-black text-white">
         <h3 className="text-xl font-semibold mb-4">Spending Trends</h3>
 
         {trendEntries.length === 0 ? (
-          <div className="bg-gray-50 p-8 rounded-xl text-center">
-            <p className="text-gray-500">No trend data available</p>
+          <div className=" p-8 rounded-xl text-center">
+            <p>No trend data available</p>
           </div>
         ) : (
-          <div className="bg-white p-6 rounded-xl shadow-lg">
+          <div className="  p-6 rounded-xl shadow-lg">
             <div className="space-y-4">
               {trendEntries.map(([period, amount]) => (
                 <div key={period} className="flex items-center justify-between">
                   <span className="text-sm font-medium">{period}</span>
                   <div className="flex items-center space-x-2">
-                    <div className="w-32 bg-gray-200 rounded-full h-2">
+                    <div className="w-32   rounded-full h-2">
                       <div
                         className="bg-gradient-to-r from-blue-500 to-purple-500 h-2 rounded-full"
                         style={{
@@ -248,22 +243,20 @@ const Analysis = () => {
 
   // Render insights tab
   const renderInsights = () => (
-    <div className="space-y-6">
+    <div className="space-y-6 bg-black text-white">
       <h3 className="text-xl font-semibold mb-4">Financial Insights</h3>
 
       {insights.length === 0 ? (
-        <div className="bg-gray-50 p-8 rounded-xl text-center">
-          <p className="text-gray-500">No insights available</p>
+        <div className="  p-8 rounded-xl text-center">
+          <p>No insights available</p>
         </div>
       ) : (
-        <div className="space-y-4">
+        <div className="space-y-4 bg-white/9">
           {insights.map((insight, index) => (
             <div
               key={index}
-              className={`p-4 rounded-xl border-l-4 ${
-                insight.type === "warning"
-                  ? "bg-yellow-50 border-yellow-400"
-                  : "bg-blue-50 border-blue-400"
+              className={`p-4 rounded-xl ${
+                insight.type === "warning" ? " " : ""
               }`}
             >
               <div className="flex items-start space-x-3">
@@ -272,9 +265,7 @@ const Analysis = () => {
                 </div>
                 <div>
                   <p className="font-medium">{insight.message}</p>
-                  <p className="text-sm text-gray-600 mt-1">
-                    Severity: {insight.severity}
-                  </p>
+                  <p className="text-sm   mt-1">Severity: {insight.severity}</p>
                 </div>
               </div>
             </div>
@@ -314,7 +305,7 @@ const Analysis = () => {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 bg-black">
         {/* Time Filter */}
         <div className="mb-6">
           <div className="flex flex-wrap gap-2">
@@ -335,9 +326,9 @@ const Analysis = () => {
         </div>
 
         {/* Tab Navigation */}
-        <div className="mb-6">
+        <div className="mb-6 bg-black">
           <div className="border-b border-gray-200">
-            <nav className="-mb-px flex space-x-8">
+            <nav className="-mb-px flex space-x-8 ">
               {tabs.map((tab) => (
                 <button
                   key={tab.id}

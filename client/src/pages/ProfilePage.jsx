@@ -67,14 +67,17 @@ const ProfilePage = () => {
 
   return (
     <div>
-      <div className="flex justify-between items-center p-4 bg-white shadow-sm">
+      <div className="flex justify-between items-center p-4 bg-black text-white shadow-sm">
         <div>
           <h1 className="font-bold text-lg">Hi, {authUser.fullName}</h1>
-          <p className="text-sm text-gray-600">
+          <p className="text-sm text-white/80">
             {`${day}, ${month} ${currentDate.getDate()}, ${currentDate.getFullYear()}`}
           </p>
         </div>
-        <div onClick={handleProfileClick} className="cursor-pointer">
+        <div
+          onClick={handleProfileClick}
+          className="cursor-pointer border-2 text-white/80 rounded-full"
+        >
           <img
             src={
               selectedImg
