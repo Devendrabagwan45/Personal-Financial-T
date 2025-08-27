@@ -70,13 +70,13 @@ const ProfilePage = () => {
       <div className="flex justify-between items-center p-4 bg-black text-white shadow-sm">
         <div>
           <h1 className="font-bold text-lg">Hi, {authUser.fullName}</h1>
-          <p className="text-sm text-white/80">
+          <p className="text-sm">
             {`${day}, ${month} ${currentDate.getDate()}, ${currentDate.getFullYear()}`}
           </p>
         </div>
         <div
           onClick={handleProfileClick}
-          className="cursor-pointer border-2 text-white/80 rounded-full"
+          className="cursor-pointer border-2 rounded-full"
         >
           <img
             src={
@@ -93,11 +93,11 @@ const ProfilePage = () => {
       {/* Modal for updating profile */}
       {showModal && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-white p-6 rounded-lg w-80">
+          <div className=" p-6 rounded-lg w-80 border-2">
             <h2 className="text-xl font-bold mb-4">Update Profile</h2>
             <form onSubmit={handleSubmit}>
               <div className="mb-4">
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-gray-400 mb-2">
                   Profile Picture
                 </label>
                 <input
@@ -113,7 +113,7 @@ const ProfilePage = () => {
                 />
               </div>
               <div className="mb-4">
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-gray-500 mb-2">
                   Name
                 </label>
                 <input
@@ -143,7 +143,7 @@ const ProfilePage = () => {
                 <button
                   type="button"
                   onClick={handleLogout}
-                  className="bg-black text-white rounded w-[50%] mx-auto p-2"
+                  className=" rounded w-[50%] mx-auto p-2 bg-white/9"
                 >
                   Logout
                 </button>
